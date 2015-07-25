@@ -30,8 +30,15 @@ and open the template in the editor.
         {{algo}}
         <br><br>
         <p>Ingrese grados centigrados.</p>
-        <input type="number" ng-model="gCentigrados"><br>
+        <input type="text" ng-model="gCentigrados"><br>
         <button class="btn btn-primary" ng-click="centi">Transformar</button>
         {{convertir}}
+        <br><br>
+        
+        <h2>Introduce los datos del producto de gallina</h2>
+        <input type="text" placeholder="Nombre del producto">
+        <input type="text" placeholder="Costo del producto">
+        <input type="text" placeholder="Numero de unidades">
+        <button class="btn btn-success">Guardar Producto</button>
     </body>
 </html>

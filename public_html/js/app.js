@@ -9,7 +9,7 @@ var aplicacion=angular.module('aplicacionsita',[]);
 //En los corchetes van las directivas.
 
 //Definimos un controlador para comunicarnos con el index.html
-aplicacion.controller('controladorPrincipal',function ($scope){
+aplicacion.controller('controladorPrincipal',function ($scope, $http){
     //Creamos un modelo simple.
     //scope.- alcance
     $scope.mensajito='Hola desde angular!!!';
@@ -24,5 +24,16 @@ aplicacion.controller('controladorPrincipal',function ($scope){
     $scope.apachurrame= function(){
         $scope.algo='haz apachurrado el boton';
     };
+    
+    
+    $scope.guaradarProducto=function(){
+      //Enviamos informacion a travez de rest.
+      $http.post('http://localhost:9000/producto/pinguinos/10/25').success(function (datos)(
+              console.log(datos);
+        
+    });
+   }; 
+
 }
-        ); 
+   );
+
