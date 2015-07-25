@@ -29,9 +29,9 @@ aplicacion.controller('controladorPrincipal',function ($scope, $http){
     $scope.guaradarProducto=function(){
       //Enviamos informacion a travez de rest.
       $http.post('http://localhost:9000/producto/pinguinos/10/25').success(function (datos)(
-              console.log(datos);
+              console.log(datos)
         
-    });
+    )};
    }; 
 
 }
