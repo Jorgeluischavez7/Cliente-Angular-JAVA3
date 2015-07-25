@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html ng-app="aplicacionsita">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -17,8 +17,21 @@ and open the template in the editor.
     <!--cargamos angular y jquery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
     </head>
-    <body>
- 
+    <body ng-controller="controladorPrincipal">
+        {{mensajito}}
+        <br>
+        <p>Escribe algo</p>
+        <input type="text" ng-model="nombre">
+        {{nombre}}
+        <h2>Manejo de eventos de boton con Angular!</h2>
+        <button class="btn btn-primary" ng-click="apachurrame">Apachurra el boton</button>
+        {{algo}}
+        <br><br>
+        <p>Ingrese grados centigrados.</p>
+        <input type="number" ng-model="gCentigrados"><br>
+        <button class="btn btn-primary" ng-click="centi">Transformar</button>
+        {{convertir}}
     </body>
 </html>
