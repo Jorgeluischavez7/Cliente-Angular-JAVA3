@@ -26,12 +26,12 @@ and open the template in the editor.
         <input type="text" ng-model="nombre">
         {{nombre}}
         <h2>Manejo de eventos de boton con Angular!</h2>
-        <button class="btn btn-primary" ng-click="apachurrame">Apachurra el boton</button>
+        <button class="btn btn-primary" ng-click="apachurrame()">Apachurra el boton</button>
         {{algo}}
         <br><br>
         <p>Ingrese grados centigrados.</p>
         <input type="text" ng-model="gCentigrados"><br>
-        <button class="btn btn-primary" ng-click="centi">Transformar</button>
+        <button class="btn btn-primary" ng-click="centi()">Transformar</button>
         {{convertir}}
         <br><br>
         
@@ -39,6 +39,16 @@ and open the template in the editor.
         <input type="text" placeholder="Nombre del producto">
         <input type="text" placeholder="Costo del producto">
         <input type="text" placeholder="Numero de unidades">
-        <button class="btn btn-success">Guardar Producto</button>
+        <button class="btn btn-success" ng-click="guardarProducto()">Guardar Producto</button>
+        
+        <h2>Buscar todos</h2>
+        <table class="table table-bordered">
+            <tr class="danger">
+                <th>id tarjeta</th>
+                 <th>nombre de tarjeta</th>
+                  <th>Dia de corte</th>
+            </tr>
+            
+        </table>
     </body>
 </html>
