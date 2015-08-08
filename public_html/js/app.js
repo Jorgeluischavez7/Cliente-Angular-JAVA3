@@ -17,23 +17,27 @@ aplicacion.controller('controladorPrincipal',function ($scope, $http){
     $scope.algo='';
     $scope.gCentigrados='';
     $scope.convertir='';
+    $scope.diacorte='';
+     $scope.nombreTar='';
+    
     $scope.centi= function (){
       $scope.convertir= (gCentigrados*1.8)+32,'resultado';
     };
     
-    $scope.apachurrame= function(){
+    $scope.apachurrame= function(){//metodo tipo onClick
         $scope.algo='haz apachurrado el boton';
     };
     
     
-    $scope.guardarProducto=function(){
+    $scope.guardar=function(){
       //Enviamos informacion a travez de rest.
-      $http.post('http://localhost:9000/producto/pinguinos/10/25').success(function (datos){
-              console.log(datos);
+      $http.post('http://localhost:9000/tarjeta/'+$scope.nombreTar+'/'+$scope.diacorte).success(function (data){
+              console.log(data);
         
     });
    
    };
+
 });
 
 
