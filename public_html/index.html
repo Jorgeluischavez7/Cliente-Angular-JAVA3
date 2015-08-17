@@ -5,14 +5,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html ng-app="aplicacionsita">
+    
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Cargamos bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
-
-
     <!-- JS -->
     <!--cargamos angular y jquery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -36,23 +35,139 @@ and open the template in the editor.
         <br><br>
         
         <h2>Introduce los datos del producto de gallina</h2>
-        <input type="text" placeholder="Nombre del producto">
-        <input type="text" placeholder="Costo del producto">
-        <input type="text" placeholder="Numero de unidades">
+        <input type="text" placeholder="Nombre del producto" ng-model="nombre">
+        <input type="text" placeholder="Costo del producto" ng-model="costo">
+        <input type="text" placeholder="Numero de unidades" ng-model="unidades">
         <button class="btn btn-success" ng-click="guardarProducto()">Guardar Producto</button>
-        
+        <br><br>
         <input type="text" ng-model="nombreTar" placeholder="nombre">
         <input type="text" ng-model="diacorte" placeholder="dia corte">
         <button class="btn btn-success" ng-click="guardar()">Guardar Tarjeta</button>
-        
-        <h2>Buscar todos</h2>
+        <br><br>
+        <h2>Buscar tarjetas</h2>
         <table class="table table-bordered">
-            <tr class="danger">
-                <th>id tarjeta</th>
-                 <th>nombre de tarjeta</th>
-                  <th>Dia de corte</th>
-            </tr>
-            
-        </table>
+        <tr class="success">
+            <th>id tarjeta</th>
+            <th>Nombre de tarjeta</th>
+            <th>Dia corte</th>
+        </tr> 
+        <button ng-click="buscarTarjeta()">Buscar todas</button>
+        <tr ng-repeat="tarjeta in tarjetas">
+            <td>{{tarjeta.idTarjeta}}</td>
+            <td>{{tarjeta.nombre}}</td>
+            <td>{{tarjeta.diacorte}}</td>
+        </tr>
+    </table>
+        <h2>Buscar tarjeta por Id</h2>
+    <input type="text" ng-model="idTarjeta" placeholder="idTarjeta">
+        <button ng-click="buscarIdTarjeta()">Buscar tarjeta por Id</button>
+        <table class="table table-bordered">
+            <tr class="success">
+                <th>Id de tarjeta</th>
+                <th>Nombre</th>
+                <th> Fecha Corte</th>
+            </tr>     
+        <tr>
+            <td>{{tarjeta.idTarjeta}}</td>
+            <td>{{tarjeta.nombre}}</td>
+            <td>{{tarjeta.diacorte}}</td>
+        </tr>
+    </table>
+    <h2>Actualizar tarjeta</h2>
+    <input type="text" ng-model="idTarjeta" placeholder="idTarjeta">
+    <button ng-click="actualizarTarjeta()">Buscar tarjeta</button>
+        <table class="table table-bordered">
+            <tr class="success">
+                <th>Id de tarjeta</th>
+                <th>Nombre</th>
+                <th> Fecha Corte</th>
+            </tr>     
+        <tr>
+            <td><input type="text" ng-model="tarjeta.idTarjeta"></td>
+            <td><input type="text" ng-model="tarjeta.nombre"></td>
+            <td><input type="text" ng-model="tarjeta.diacorte"></td>
+        </tr>
+         <button ng-click="actualizarTarjeta()">Actualizar Tarjeta</button>
+    </table>
+    <br><br>
+   <h2>-------------------------------------------------------------------------</h2>
+    
+    <h2>Guardar gastos</h2>
+    <input type="date" ng-model="fecha" placeholder="Fecha">
+    <input type="text" ng-model="concepto" placeholder="Concepto">
+    <input type="number" ng-model="cantidad" placeholder="Cantidad">
+    <input type="text" ng-model="idTarjeta" placeholder="IdTarjeta">
+    <button class="btn btn-success" ng-click="guardarGastos()">Guardar gastos</button>
+
+   <h2>Buscar todos los gastos</h2>
+    <table class="table table-bordered">
+        <tr class="success">
+            <th>Id Gastos</th>
+            <th>Fecha</th>
+            <th>Concepto</th>
+            <th>Cantidad</th>
+            <th>Id tarjeta</th>
+        </tr> 
+        <button ng-click="buscarGastos()">Buscar todos</button>
+        <tr ng-repeat="gastos in gastos">
+            <td>{{gastos.idGastos}}</td>
+            <td>{{gastos.fecha}}</td>
+            <td>{{gastos.concepto}}</td>
+            <td>{{gastos.cantidad}}</td>
+            <td>{{gastos.idTarjeta.nombre}}</td>
+        </tr>
+    </table>
+   
+   <h2>Buscar gasto por Id</h2>
+    <input type="text" ng-model="idGastos" placeholder="idGastos">
+    <button ng-click="buscarIdGastos()">Buscar Gastos por ID</button>
+        <table class="table table-bordered">
+            <tr class="success">
+                <th>Id Gastos</th>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Cantidad</th>
+                <th>id Tarjeta</th>
+            </tr>     
+        <tr>
+            <td>{{gasto.idGastos}}</td>
+            <td>{{gasto.fecha}}</td>
+            <td>{{gasto.concepto}}</td>
+            <td>{{gasto.cantidad}}</td>
+            <td>{{gasto.idTarjeta.nombre}}</td>
+        </tr>
+    </table>
+    
+    <h2>Actualizar gastos</h2>
+    <input type="text" ng-model="idGastos" placeholder="idGastos">
+    <button ng-click="actualizarGastos()">Buscar gasto</button>
+        <table class="table table-bordered">
+            <tr class="success">
+                <th>Id Gastos</th>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Cantidad</th>
+                <th>id Tarjeta</th>
+            </tr>     
+        <tr>
+            <td ><input type="text" ng-model="gasto.idGastos"></td>
+            <td><input type="text" ng-model="gasto.fecha"></td>
+            <td><input type="text" ng-model="gasto.concepto"></td>
+            <td><input type="number" ng-model="gasto.cantidad"></td>
+            <td><input type="text" ng-model="gasto.idTarjeta.nombre"></td>
+        </tr>
+        <button ng-click="actualizarGastos()">Actualizar gastos</button>
+    </table>
+    
+    <td><button ng-click="borrarGastos(gasto)" class="btn btn-danger">Borrar gasto</button></td>
+    
+
+
+   
+   
+
+
+ 
+       
     </body>
 </html>
